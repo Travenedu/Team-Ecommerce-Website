@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(4,9,30,.3),rgba(4,9,30,.3)),url("images/aboutusbackground2.jpg");
+    background-position: center;
+    background-size: cover;
+
+    display: grid;
+    grid-template-rows: 70px 650px;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+
+/*
+.container div{
+    border: 1px solid black;
+}
+*/
+.header{
+    text-align: center;
+    font-size: 10;
+}
+
+.header#Home{
+    font-size: 20pt;
+    text-align: right; 
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+.header#Products{
+    font-size: 20pt;
+    text-align: left;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+
+.text{
+    text-align: center;
+    font-size: 20pt;
+    border: 1px solid black;
+    padding: 50px;
+    position: relative;
+    bottom: -125px;
+    left: 100px;  
+}
+
+.container#MeetUs{
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    grid-template-rows: 70px 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+#MeetUs #header{
+    font-size: 20pt;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+}
+#MeetUs #Information{
+    font-size: 18pt;
+    padding: 10px;
+}
+
+
