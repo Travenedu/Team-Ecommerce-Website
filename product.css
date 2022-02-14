@@ -1,7 +1,8 @@
 body{
     font-size: 25px;
-    background-image: url(/images/bp.png); 
+    background-image: url("images/bp.png"); 
     background-size: cover;
+    background-position: center;
     background-color: aqua
 
 }
@@ -163,3 +164,8 @@ button:focus{
     float:left;
 
 }
+
+.profile{
+    float: up;
+    text-align: right;
+  }
