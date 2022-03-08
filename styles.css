@@ -14,7 +14,7 @@
     background-size: cover;
 
     display: grid;
-    grid-template-rows: 70px 650px;
+    grid-template-rows: 550px;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding: 10px;
@@ -33,24 +33,22 @@
 
 .header#Home{
     font-size: 20pt;
-    text-align: right; 
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    position: absolute;
+    top: 10px;
+    left: 10px
 
 }
 .header#Products{
     font-size: 20pt;
-    text-align: left;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    position: absolute;
+    top: 10px;
+    left: 100px
+
 
 }
 
 .back{
+    font-size:20pt;
     position: absolute;
     top: 10px;
     left: 10px
