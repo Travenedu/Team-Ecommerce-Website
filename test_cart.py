@@ -1,6 +1,6 @@
 import unittest
 #TODO: from <name_of_file> import <name_of_class> (example below)
-from cart import Cart
+from cart_code import Cart
 
 class Testcart(unittest.TestCase):
 
@@ -25,18 +25,15 @@ class Testcart(unittest.TestCase):
     
   def test_add_to_cart(self):
     #add_to_cart type error test@
-    self.assertRaises(TypeError, self.customer1.add_to_cart, "Lotion", "10", 6.99)
-    self.assertRaises(TypeError, self.customer1.add_to_cart, "Lotion", 10, "Nope")
-    self.assertRaises(TypeError, self.customer2.add_to_cart, 123, 456, 789)
-    self.assertRaises(TypeError, self.customer2.add_to_cart, "car", "10" "tom") 
+    self.assertRaises(TypeError, self.customer1.add_to_cart, "Lotion", "10")
+    self.assertRaises(TypeError, self.customer2.add_to_cart, 123, 456)
     #add_to_cart value error test@
-    self.assertRaises(ValueError, self.customer1.add_to_cart, "Lotion", -10, -6.99)
-    self.assertRaises(ValueError, self.customer1.add_to_cart, "Lotion", -10, 6.99)
-    self.assertRaises(ValueError, self.customer2.add_to_cart, "Lotion", 10, -6.99)
+    self.assertRaises(ValueError, self.customer1.add_to_cart, "Lotion", -10)
+    
     #add_to_cart accuracy test@
-    self.assertEqual(self.customer1.add_to_cart("Lotion", 10, 6.99), "A quantity of 10 Lotion was added to cart")
-    self.assertEqual(self.customer1.add_to_cart("Lotion", 12, 5.00), "A quantity of 12 Lotion was added to cart")
-    self.assertEqual(self.customer2.add_to_cart("Lotion", 7, 3.99), "A quantity of 7 Lotion was added to cart")
+    self.assertEqual(self.customer1.add_to_cart("Lotion", 10), "A quantity of 10 Lotion was added to cart")
+    self.assertEqual(self.customer1.add_to_cart("Lotion", 12), "A quantity of 12 Lotion was added to cart")
+    self.assertEqual(self.customer2.add_to_cart("Lotion", 7), "A quantity of 7 Lotion was added to cart")
 
   def total_price(self):
     #total_price accuracy test
@@ -45,18 +42,15 @@ class Testcart(unittest.TestCase):
   
   def test_remove_from_cart(self):
     #add_to_cart type error test
-    self.assertRaises(TypeError, self.customer1.remove_from_cart, "Lotion", "10", 6.99)
-    self.assertRaises(TypeError, self.customer1.remove_from_cart, "Lotion", 10, "Nope")
-    self.assertRaises(TypeError, self.customer1.remove_from_cart, 123, 456, 789)
-    self.assertRaises(TypeError, self.customer1.remove_from_cart, "car", "10" "tom") 
+    self.assertRaises(TypeError, self.customer1.remove_from_cart, "Lotion", "10")
+    self.assertRaises(TypeError, self.customer1.remove_from_cart, 123, 456)
+     
     #add_to_cart value error test
-    self.assertRaises(ValueError, self.customer1.remove_from_cart, "Lotion", -10, -6.99)
-    self.assertRaises(ValueError, self.customer1.remove_from_cart, "Lotion", -10, 6.99)
-    self.assertRaises(ValueError, self.customer1.remove_from_cart, "Lotion", 10, -6.99)
+    self.assertRaises(ValueError, self.customer1.remove_from_cart, "Lotion", -10)
     #add_to_cart accuracy test
-    self.assertEqual(self.customer1.remove_from_cart("Lotion", 10, 6.99), "A quantity of 10 Lotion was removed from cart")
-    self.assertEqual(self.customer1.remove_from_cart("Lotion", 6, 6.99), "A quantity of 6 Lotion was removed from cart")
-    self.assertEqual(self.customer2.remove_from_cart("Lotion", 5, 6.99), "A quantity of 5 Lotion was removed from cart")
+    self.assertEqual(self.customer1.remove_from_cart("Lotion", 10), "A quantity of 10 Lotion was removed from cart")
+    self.assertEqual(self.customer1.remove_from_cart("Lotion", 6), "A quantity of 6 Lotion was removed from cart")
+    self.assertEqual(self.customer2.remove_from_cart("Lotion", 5), "A quantity of 5 Lotion was removed from cart")
 
 
 if __name__=='__main__':
