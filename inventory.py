@@ -1,5 +1,5 @@
 import unittest
-from company_information import employ_id_information
+
 
 class Inventory:
     """
@@ -20,8 +20,10 @@ class Inventory:
 
     def __init__(self, employ_first_name, employ_last_name, employ_id):
         """Inits class with items, quantity, and price"""
-        if  type(employ_first_name) != str and type(employ_last_name) != str:
-            raise TypeError("Invalid input for first and last name")
+        if  type(employ_first_name) != str:
+            raise TypeError("Invalid input for first")
+        if  type(employ_last_name) != str:
+            raise TypeError("Invalid input for last name")
         if type(employ_id) != int:
             raise TypeError("Invalid input for employee id")
         if employ_id < 0:
@@ -39,7 +41,8 @@ class Inventory:
              "Jergens Secret Lavender": 100,
              "Jergens Firming Glow Set": 100,
              "Jergens Daily Moisterizer Glow Set": 100, 
-             "Jergens Instant Sun": 100}
+             "Jergens Instant Sun": 100,
+             "Jergens Dry Skin 400":0}
 
  
 
