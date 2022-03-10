@@ -15,14 +15,16 @@ class Client:
             user_password = input("Password?")
             user_email_address = input("Email Address?")
             user_birth_month = input("Birth Month?")
+            user_birth_month = int(user_birth_month)
             user_birth_year = input("Year?")
+            user_birth_year = int(user_birth_year)
             self.user = Account(first_name, last_name, user_name, user_password, user_email_address, user_birth_month, user_birth_year)
         elif user_question == "yes":
             user_account_prompt = input("Would you like to keep your account? (yes or no)")
             if user_account_prompt == "no":
                 delete_user_name = input("What's your user name")
                 delete_password = input("What's your password?")
-                self.user.delete_account(delete_user_name, delete_password)
+                self.user.delete_account(delete_user_name, delete_password, self.user)
 
 
     def login(self):
@@ -31,8 +33,8 @@ class Client:
             employ_first_name = input("What's your first name?")
             employ_last_name = input("What's your last name?")
             employ_id = input("What's your employee id?")
-
-            if employ_id not in employee_id:
+            employ_id = int(employ_id)
+            if employ_id not in employee_id.values():
                 print("You do not have access")
 
             else:
@@ -53,52 +55,60 @@ class Client:
                     if employee_answer == "A":
                         add_item = input("What item are you adding?")
                         add_quantity = input("How much is being added?")
-                        self.employ.add_item(add_item, add_quantity)
+                        add_quantity = int(add_quantity)
+                        print(self.employ.add_item(add_item, add_quantity))
 
                     elif employee_answer == "B":
                         remove_item = input("What item are you removing?")
-                        self.employ.remove_item(remove_item)
+                        print(self.employ.remove_item(remove_item))
                         
                     elif employee_answer == "C":
                         add_item = input("What item's stock is being add too?")
                         add_quantity = input("How much is being added?")
-                        self.employ.add_item_stock(add_item, add_quantity)
+                        add_quantity = int(add_quantity)
+                        print(self.employ.add_item_stock(add_item, add_quantity))
 
                     elif employee_answer == "D":
                         remove_item = input("What item's stock is being removed from?")
                         remove_quantity = input("How much is being removed?")
-                        self.employ.remove_item_stock(remove_item, remove_quantity)
+                        remove_quantity = int(remove_quantity)
+                        print(self.employ.remove_item_stock(remove_item, remove_quantity))
 
                     elif employee_answer == "E":
                         item_check = ("What item are is being checking for?")
-                        self.employ.check_item_stock(item_check)
+                        print(self.employ.check_item_stock(item_check))
 
                     elif employee_answer == "F":
                         print("The head count:")
-                        self.employ.head_count()
+                        print(self.employ.head_count())
 
                     elif employee_answer == "G":
-                        self.employ.full_restock()     
+                        print(self.employ.full_restock())     
 
         elif login == "customer":
             buying = True
             self.cart = Cart("User_name", "User_name")
-
+            user_cart = {}
             print("This is what we have in stock")
             for item, price in item_dict.items():
-                print(item + " : " + price)
+                print(item + " : " + str(price))
             while buying == True:
                 print("What would you like to buy?")
                 item_choice = input("Item:")
                 item_quantity = input("Qauntity:")
-                self.cart.add_to_cart(item_choice, item_quantity)
+                item_quantity = int(item_quantity)
+                if item_choice not in user_cart:
+                    user_cart[item] = item_quantity
+                elif item_choice in user_cart:
+                    user_cart[item] += item_quantity
+                print(self.cart.add_to_cart(item_choice, item_quantity))
                 still_shopping = input("Would you like to buy anything else? (yes or no)")
                 if still_shopping == "no":
                     buying = False
 
             print("This is your cart")
-            for item_in_cart, quantity in self.cart.user_cart.items():
-                print(item_in_cart + " | " + quantity + " | " + item_dict[item_in_cart])
+            for item_in_cart, quantity in user_cart.items():
+                print(item_in_cart + " | " + str(quantity) + " | " + str(item_dict[item_in_cart]))
 
             costumer_answer = input("Would you like to remove anything? (yes or no)")
             if costumer_answer == "yes":
@@ -108,7 +118,7 @@ class Client:
 
                     remove_item = input("What would you like to remove")
                     remove_quantity = input("How much are you removing?")
-                    self.cart.remove_from_cart(remove_item, remove_quantity)
+                    print(self.cart.remove_from_cart(remove_item, remove_quantity))
 
                     still_removing = input("Would you like to remove anything else? (yes or no)")
                     if still_removing == "no":
@@ -116,6 +126,10 @@ class Client:
 
             else:
                 print("Your total is:")
+                total = 0
+                for item, value in user_cart.items():
+                    total += item_dict[item] * value 
+                print(total)
                 self.cart.total_price()
                 buying = input("Would you like to purchase? (yes or no)")
                 if buying == "yes":
@@ -127,5 +141,5 @@ class Client:
 
         
 newCLI = Client()
-newCLI.login()
+print(newCLI.login())
 
