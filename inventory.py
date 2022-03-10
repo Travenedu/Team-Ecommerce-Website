@@ -1,4 +1,5 @@
 import unittest
+from company_information import employ_id_information
 
 class Inventory:
     """
@@ -17,10 +18,15 @@ class Inventory:
         full_restock
     """
 
-    def __init__(self): #def __init__(self, item, quantity):
+    def __init__(self, employ_first_name, employ_last_name, employ_id):
         """Inits class with items, quantity, and price"""
+        self.employ_first_name = employ_first_name
+        self.employ_last_name = employ_last_name
+        self.employ_id = employ_id
         self.inventory = {}
-        #self.inventory = { "Jergens Soothing Aloe": 0, "Jergens Cloud Creme": 0,"Jergens Dry Skin": 0 ,"Jergens Secret Citrius": 0 ,"Jergens Secret Lavender": 0,"Jergens Firming Glow Set": 0 , "Jergens Daily Moisterizer Glow Set": 0, "Jergens Instant Sun": 0}
+
+ 
+
 
     def add_item(self, item, quantity):
         """This method checks if specified item is in inventory and if it isn't it adds specified item to inventory."""
