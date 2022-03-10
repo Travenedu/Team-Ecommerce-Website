@@ -36,3 +36,14 @@ lass Account:
     else:
       self.month = month
       self.year = year
+      
+  def add_account(self):
+    self.users = {self.user_name:[self.password, self.email, self.month, self.year]}
+    return self.user_name + "'s account has been created."
+
+  def delete_account(self, username, password):
+    for users in self.users:
+      if self.users[username] == password:
+        self.users.pop(username)
+        return username + "'s account has been deleted."
+      return "User does not exist"

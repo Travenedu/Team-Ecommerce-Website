@@ -8,6 +8,22 @@
   """
 from company_information import item_dict
 
+class Cart:
+  def __init__(self, first_name, last_name): 
+    self.last_name = last_name
+    self.first_name = first_name
+    self.users_cart = {}
+    if type(first_name) != str:
+      raise TypeError
+    if type(last_name) != str:
+      raise TypeError
+    if first_name == "Jergens":
+      raise TypeError
+    if first_name or last_name == "":
+      raise TypeError
+    
+
+
 
 class Cart:
     def __init__(self, first_name, last_name):
