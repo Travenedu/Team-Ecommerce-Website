@@ -1,10 +1,10 @@
 import unittest
 #TODO: from <name_of_file> import <name_of_class> (example below)
-from cart_code import Cart
+from cart import Cart
 
 class Testcart(unittest.TestCase):
 
-  def setup(self):
+  def setUp(self):
     self.customer1 = Cart("Jullian", "Myers")
     self.customer2 = Cart("Alysha", "Watson")
     

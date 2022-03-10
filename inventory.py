@@ -20,10 +20,27 @@ class Inventory:
 
     def __init__(self, employ_first_name, employ_last_name, employ_id):
         """Inits class with items, quantity, and price"""
+        if  type(employ_first_name) != str and type(employ_last_name) != str:
+            raise TypeError("Invalid input for first and last name")
+        if type(employ_id) != int:
+            raise TypeError("Invalid input for employee id")
+        if employ_id < 0:
+            raise ValueError("Employee id has to be a non-negative number")
+        if employ_id > 999:
+            raise ValueError("Employee id has to be a three digit number")
+
+
         self.employ_first_name = employ_first_name
         self.employ_last_name = employ_last_name
         self.employ_id = employ_id
-        self.inventory = {}
+        self.inventory = {"Jergens Smoothing Aloe": 100, 
+             "Jergens Cloud Creme": 100, 
+             "Jergens Dry Skin": 100, 
+             "Jergens Secret Citrius": 100, 
+             "Jergens Secret Lavender": 100,
+             "Jergens Firming Glow Set": 100,
+             "Jergens Daily Moisterizer Glow Set": 100, 
+             "Jergens Instant Sun": 100}
 
  
 
