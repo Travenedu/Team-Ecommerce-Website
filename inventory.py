@@ -25,11 +25,8 @@ class Inventory:
         self.employ_id = employ_id
         self.inventory = {}
 
-    def employer_check(self, employ_id_information):
-        if self.employ_id not in employ_id_information:
-            print("You do not have access")
+ 
 
-        #self.inventory = { "Jergens Soothing Aloe": 0, "Jergens Cloud Creme": 0,"Jergens Dry Skin": 0 ,"Jergens Secret Citrius": 0 ,"Jergens Secret Lavender": 0,"Jergens Firming Glow Set": 0 , "Jergens Daily Moisterizer Glow Set": 0, "Jergens Instant Sun": 0}
 
     def add_item(self, item, quantity):
         """This method checks if specified item is in inventory and if it isn't it adds specified item to inventory."""
