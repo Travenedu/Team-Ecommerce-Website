@@ -1,6 +1,5 @@
 import unittest
 
-
 class Inventory:
     """
     This class makes up and operates the inventory of the website
@@ -133,11 +132,3 @@ class Inventory:
 
         return "Everything is fully restocked"
 
-
-
-#employ = Inventory()
-
-#print(employ.add_item("Soap", 13))
-#print(employ.add_item("Face Wipes", 103))
-#print(employ.add_item("Shampoo", 43))
-#print(employ.head_count())

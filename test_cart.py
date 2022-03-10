@@ -1,12 +1,13 @@
 import unittest
 #TODO: from <name_of_file> import <name_of_class> (example below)
-from cart import Cart
+from cart_code import Cart
 
 class Testcart(unittest.TestCase):
-
+  longMessage = False
   def setUp(self):
     self.customer1 = Cart("Jullian", "Myers")
     self.customer2 = Cart("Alysha", "Watson")
+
     
   def test_init_types(self):
     #class variable init check@
@@ -25,15 +26,15 @@ class Testcart(unittest.TestCase):
     
   def test_add_to_cart(self):
     #add_to_cart type error test@
-    self.assertRaises(TypeError, self.customer1.add_to_cart, "Lotion", "10")
+    self.assertRaises(TypeError, self.customer1.add_to_cart, "Jergens Smoothing Aloe", "10")
     self.assertRaises(TypeError, self.customer2.add_to_cart, 123, 456)
     #add_to_cart value error test@
-    self.assertRaises(ValueError, self.customer1.add_to_cart, "Lotion", -10)
+    self.assertRaises(ValueError, self.customer1.add_to_cart, "Jergens Smoothing Aloe", -10)
     
     #add_to_cart accuracy test@
-    self.assertEqual(self.customer1.add_to_cart("Lotion", 10), "A quantity of 10 Lotion was added to cart")
-    self.assertEqual(self.customer1.add_to_cart("Lotion", 12), "A quantity of 12 Lotion was added to cart")
-    self.assertEqual(self.customer2.add_to_cart("Lotion", 7), "A quantity of 7 Lotion was added to cart")
+    self.assertEqual(self.customer1.add_to_cart("Jergens Smoothing Aloe", 10), "A quantity of 10 Jergens Smoothing Aloe was added to cart")
+    self.assertEqual(self.customer1.add_to_cart("Jergens Smoothing Aloe", 12), "A quantity of 12 Jergens Smoothing Aloe was added to cart")
+    self.assertEqual(self.customer2.add_to_cart("Jergens Smoothing Aloe", 7), "A quantity of 7 Jergens Smoothing Aloe was added to cart")
 
   def total_price(self):
     #total_price accuracy test
@@ -42,17 +43,17 @@ class Testcart(unittest.TestCase):
   
   def test_remove_from_cart(self):
     #add_to_cart type error test
-    self.assertRaises(TypeError, self.customer1.remove_from_cart, "Lotion", "10")
-    self.assertRaises(TypeError, self.customer1.remove_from_cart, 123, 456)
+    self.assertRaises(TypeError, self.customer1.remove_from_cart, "Jergens Smoothing Aloe", "10", {"Jergens Smoothing Aloe": 5})
+    self.assertRaises(TypeError, self.customer1.remove_from_cart, 123, 456, {"Jergens Smoothing Aloe": 5})
      
     #add_to_cart value error test
-    self.assertRaises(ValueError, self.customer1.remove_from_cart, "Lotion", -10)
+    self.assertRaises(ValueError, self.customer1.remove_from_cart, "Jergens Smoothing Aloe", -10, {"Jergens Smoothing Aloe": 5})
+    self.assertRaises(ValueError, self.customer1.remove_from_cart, "Jergens Smoothing Aloe", 6, {"Jergens Smoothing Aloe": 5})
     #add_to_cart accuracy test
-    self.assertEqual(self.customer1.remove_from_cart("Lotion", 10), "A quantity of 10 Lotion was removed from cart")
-    self.assertEqual(self.customer1.remove_from_cart("Lotion", 6), "A quantity of 6 Lotion was removed from cart")
-    self.assertEqual(self.customer2.remove_from_cart("Lotion", 5), "A quantity of 5 Lotion was removed from cart")
+    self.assertEqual(self.customer1.remove_from_cart("Jergens Smoothing Aloe", 10, {"Jergens Smoothing Aloe": 11}), "A quantity of 10 Jergens Smoothing Aloe was removed from cart")
+    
+    self.assertEqual(self.customer2.remove_from_cart("Jergens Smoothing Aloe", 5, {}), "Your Cart is empty")
 
 
-if __name__=='__main__':
-    unittest.main()
-
+if __name__ == '__main__':
+    unittest.main(failfast=True)

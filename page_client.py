@@ -1,11 +1,29 @@
 from inventory import Inventory
-from cart import Cart
+from cart_code import Cart
 from account import Account
 from company_information import item_dict, employee_id
 
 class Client:
     def __init__(self):
-        print("Please log in")
+        print("Please login")
+        user_question = input("Do you have an account? (yes or no)")
+        if user_question == "no":
+            print("you will have to make one")
+            first_name = input("What is your first name?")
+            last_name = input("What is your last name?")
+            user_name = input("User Name?")
+            user_password = input("Password?")
+            user_email_address = input("Email Address?")
+            user_birth_month = input("Birth Month?")
+            user_birth_year = input("Year?")
+            self.user = Account(first_name, last_name, user_name, user_password, user_email_address, user_birth_month, user_birth_year)
+        elif user_question == "yes":
+            user_account_prompt = input("Would you like to keep your account? (yes or no)")
+            if user_account_prompt == "no":
+                delete_user_name = input("What's your user name")
+                delete_password = input("What's your password?")
+                self.user.delete_account(delete_user_name, delete_password)
+
 
     def login(self):
         login = input("Are you an employee or customer?")
@@ -108,17 +126,6 @@ class Client:
             print("Not a valid input")
 
         
-        
-        #print("Please login")
-        #user_question = input("Do you have an account? yes or no")
-        #if user_question == "no":
-            #print("you will have to make one")
-        '''
-        user_name = input("User Name?")
-        user_password = input("Password?")
-        user_email_address = input("Email Address?")
-        user_birth_month= input("Birth Month?")
-        user_birth_year = input("Year?")
-        
-        self.user = Account(user_name, user_password, user_email_address, user_birth_month, user_birth_year)
-        '''
+newCLI = Client()
+newCLI.login()
+

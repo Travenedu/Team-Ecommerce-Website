@@ -22,9 +22,6 @@ class Cart:
     if first_name or last_name == "":
       raise TypeError
     
-
-
-
 class Cart:
     def __init__(self, first_name, last_name):
         self.last_name = last_name
@@ -73,8 +70,6 @@ class Cart:
         else:
             users_cart[item] -= quantity
             return "A quantity of " + str(quantity) + " " + item + " was removed from cart"
-        #else:
-            #raise ValueError(f' {item} cant remove item not available in cart')
 
     def total_price(self):
         total = 0
