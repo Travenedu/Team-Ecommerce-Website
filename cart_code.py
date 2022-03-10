@@ -6,7 +6,7 @@
       remove_item
       total_price
   """
-from item_dictionary import item_dict
+from company_information import item_dict
 class Cart:
   def __init__(self, first_name, last_name): 
     self.last_name = last_name

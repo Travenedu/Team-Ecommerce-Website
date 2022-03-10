@@ -29,7 +29,6 @@ class Inventory:
         if employ_id > 999:
             raise ValueError("Employee id has to be a three digit number")
 
-
         self.employ_first_name = employ_first_name
         self.employ_last_name = employ_last_name
         self.employ_id = employ_id
