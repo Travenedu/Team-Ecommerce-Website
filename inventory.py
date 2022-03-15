@@ -43,9 +43,6 @@ class Inventory:
              "Jergens Instant Sun": 100,
              "Jergens Dry Skin 400":0}
 
- 
-
-
     def add_item(self, item, quantity):
         """This method checks if specified item is in inventory and if it isn't it adds specified item to inventory."""
         if type(item) != str:
