@@ -17,14 +17,6 @@ class Client:
         user_birth_year = int(user_birth_year)
         self.user = Account(first_name, last_name, user_name, user_password, user_email_address, user_birth_month, user_birth_year)
 
-        #elif user_question == "yes":
-        #    user_account_prompt = input("Would you like to keep your account? (yes or no)")
-        #    if user_account_prompt == "no":
-        #        delete_user_name = input("What's your user name ")
-        #        delete_password = input("What's your password? ")
-        #        self.user.delete_account(delete_user_name, delete_password, self.user)
-
-
     def login(self):
         login = input("Are you an employee or customer?")
         if login == "employee":
