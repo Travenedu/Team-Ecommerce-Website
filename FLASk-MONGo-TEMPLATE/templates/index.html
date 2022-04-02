@@ -1,0 +1,18 @@
+<div class="nav-bar">
+    <a href="/">Home</a>
+
+</div>
+<h2><a href='/AboutUs'>Learn about us</a></h2>
+
+<h1>Recommendations</h1>
+<div class="product-list">
+  <ul>
+      {% for item in products %}
+      <li><a href='/item/{{ item._id }}'>{{item.name }}</a> by {{item.price }}</li>
+      {% endfor %}
+  </ul>
+</div>
+<!-- #62460dcae118b1e7909ba709 -->
+<!-- 62460e97510b41d4fade304a -->
+</body>
+</html>
