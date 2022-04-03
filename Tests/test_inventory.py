@@ -1,6 +1,6 @@
 #code pushed to github by Traven but work done by Alexis
 import unittest
-from inventory import Inventory
+from Classes.inventory import Inventory
 
 class TestInventory(unittest.TestCase):
   longMessage = False

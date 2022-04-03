@@ -1,7 +1,7 @@
-from inventory import Inventory
+from Classes.inventory import Inventory
 from cart_code import Cart
-from account import Account
-from company_information import item_dict, employee_id
+from Classes.account import Account
+from company_information import products, employee_id
 
 class Client:
     def __init__(self):
@@ -80,7 +80,7 @@ class Client:
             self.cart = Cart("first_name", "last_name")
             user_cart = {}
             print("This is what we have in stock:")
-            for item, price in item_dict.items():
+            for item, price in products.items():
                 print(item + " : " + str(price))
             while buying == True:
                 print("What would you like to buy?")
@@ -98,7 +98,7 @@ class Client:
 
             print("This is your cart:")
             for item_in_cart, quantity in user_cart.items():
-                print(item_in_cart + " | " + str(quantity) + " | " + str(item_dict[item_in_cart]))
+                print(item_in_cart + " | " + str(quantity) + " | " + str(products[item_in_cart]))
 
             costumer_answer = input("Would you like to remove anything? (yes or no) ")
             if costumer_answer == "yes":
@@ -118,7 +118,7 @@ class Client:
                 print("Your total is:")
                 total = 0
                 for item, value in user_cart.items():
-                    total += item_dict[item] * value 
+                    total += products[item] * value 
                 print("$" + str(round(total,2)))
                 round(self.cart.total_price(),2)
                 buying = input("Would you like to purchase? (yes or no) ")

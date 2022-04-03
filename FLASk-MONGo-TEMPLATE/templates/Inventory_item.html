@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inventory Item</title>
 </head>
 <body>
     <h1>Item Name</h1>
     <div class="container">
-        <div id="picture">
-            <img src="">
-        </div>
 
         <div class="data">
             <h3 id="price">price</h3>
+            <h2>{{ item.price }}</h2>
+
+            <h3 id="TypeofProduct">Type of Product</h3>
+            <h2>{{ item.TypeofProduct }}</h2>
+
             <h3 id="stock">stock</h3>
+            <h2>{{ item.stock }}</h2>
+        <!--
             <h3 id="Last Restock">Last Restock</h3>
+            <h2>{{last_restock}}</h2>
+        -->
         </div>
 
         <form method="post" action="">
@@ -26,12 +32,18 @@
 
             <label for="price">Price</label>
             <input type="number" name="price">
+            <h2><a href='/new'>Remove Item</a></h2>
         </form>
 
         <div>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium iure quisquam est dolor enim sunt voluptates quis repellendus eos neque, blanditiis fuga perferendis aliquid, aspernatur pariatur numquam natus! Veniam, harum!
-            </p>
+            {% if item.image %}
+                <img src='{{ item.image }}'/>
+            {% endif %}
+            
+            {% if item.item_description %}
+                <p>{{item_description}}</p>
+            {% endif %}
+        
         </div>
 
     </div>
