@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inventory_view</title>
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="/inventory_view">All products</a>
+      {% for product in Type_of_Product%}
+          <a href='/product_type_view/{{ product }}'>{{ product }}</a>
+      {% endfor %}
+      </div>
+
+      <h2>{{ label }} Products</h2>
+
+      <div class="product-list">
+        <ul>
+          {% for product in products %}
+            <li><a href='/item/{{ product._id }}'>{{ product.name }}</a> by {{ product.stock }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <h2><a href='/new'>Add to Inventory</a></h2>
+<!--
+      {% if session %}
+        <p>Logged in as {{ session['username'] }}</p>
+        <a href='/mybooks'>My Books</a>
+        <a href='/logout'>Log Out</a>
+      {% else %}
+        <a href='/login'>Log In</a>
+        <a href='/signup'>Sign Up</a>
+      {% endif %}
+-->
+</body>
+</html>
