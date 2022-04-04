@@ -1,5 +1,5 @@
 /*For inventory.html*/
-.container{
+.InventoryContainer{
     width: 100vw;
     height: 100vh;
     background-size: cover;
@@ -9,7 +9,7 @@
 }
 
 
-.container div{
+.InventoryContainer div{
     border: 1px solid black;
 }
 
@@ -79,7 +79,7 @@ body{
     background:rgb(16, 25, 27);
 }
 
-#title{
+#NewItemTitle{
     font-size: 50px;
     color: white;
 }
@@ -172,7 +172,7 @@ body{
 }
 
 /*inventory_item*/
-.container{
+.ItemViewContainer{
     width: 100vw;
     height: 100vh;
     background-size: cover;
@@ -182,7 +182,7 @@ body{
 }
 
 
-.container div{
+.ItemViewContainer div{
     border: 1px solid black;
 }
 

@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/inventory.css') }}">
     <title>Add New Item</title>
 </head>
 <body>
     <div class="question">
-    <h1 id="title">Add a New Item to Inventory</h1>
+    <h1 id="NewItemTitle">Add a New Item to Inventory</h1>
     <form method="post" action="/new">
         <label for="name" id="labelName">Name of Item</label>
         <input type="text" id="inputs" name="name" value="">
