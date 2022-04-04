@@ -100,6 +100,7 @@ def addto_cart(user_id):
 
      product_collection = mongo.db.Head2Toe
 
+#inventory
 @app.route('/inventory')
 def inventory():
     #collection = mongo.db.Head2Toe
