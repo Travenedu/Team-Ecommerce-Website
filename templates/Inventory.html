@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">-->
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
     <title>Inventory Homepage</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="inventory">
         <h1>Welcome {{user}}</h1>    
 
         <!--<img id="employee" src=""> add image-->
@@ -18,9 +20,13 @@
             <h2>{{job_title}}</h2> <!--Might Remove-->
         </div>
         
-        <h2><a href='/inventory_view'>Products</a></h2>
+        <div class="circle">
+            <h2><a href='/inventory_view'>Products</a></h2>
+        </div>
         <!--<h2><a href='/new'>Profile</a></h2>-->
 
     </div>
 </body>
 </html>
+
+

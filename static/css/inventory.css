@@ -1,0 +1,263 @@
+/*For inventory.html*/
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: grid;
+    grid-template-rows: 150px 1fr 1fr 2fr;
+    grid-template-columns: 3fr 1fr;
+}
+
+
+.container div{
+    border: 1px solid black;
+}
+
+.welcome{
+    font-size: 30pt;
+    padding: 0px;
+    background-color:aliceblue;
+    border: solid black;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+
+#employee{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background-color:aquamarine;
+}
+
+.test{
+    text-align: center;
+    font-size: 25pt;
+    color:blue;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+
+.circle{
+    width:800px;
+    height:800px;
+    top: 30%;
+    background:lightblue;
+    margin: 10% auto;
+    border-radius: 50%;
+    position: relative;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+
+.products{
+    font-family: helvetica;
+    font-size: 150px;
+    text-align: middle;
+    position:absolute;
+    width: inherit;
+    height: auto;
+    top: 30%;
+    transform: translateY(-50%);
+    text-align: center;
+    color:black;
+}
+
+/*New_item*/
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:rgb(16, 25, 27);
+}
+
+#title{
+    font-size: 50px;
+    color: white;
+}
+
+.question{
+    width: 800px;
+    padding: 80px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(64, 115, 133, 0.822);
+    text-align: center;
+}
+
+.question input[type="text"]{
+    font-size: 25px;
+    border: 0;
+    background:none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid;
+    padding: 14px 10px;
+    width: 500px;
+    outline: none;
+    color: white;
+}
+
+
+#labelName{
+    font-size: 25px;
+    font-family: Helvetica;
+    color: white;
+}
+
+#TypeofProduct{
+    font-size: 25px;
+    border: 0;
+    background:none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid;
+    padding: 14px 10px;
+    outline: none;
+    color: white;
+}
+
+#inputs{
+    font-size: 25px;
+    border: 0;
+    background:none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid;
+    padding: 14px 10px;
+    width: 500px;
+    outline: none;
+    color: white;
+
+}
+
+
+.question input[type = "submit"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    transition: 0.25s;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+#cancel{
+    padding-left: 10px;
+    color: white;
+    font-size: 25px;
+}
+
+.question input[type = "submit"]:hover{
+    background:blue;
+}
+
+/*inventory_item*/
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: grid;
+    grid-template-rows: 150px 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
+}
+
+
+.container div{
+    border: 1px solid black;
+}
+
+#ItemName{
+    font-size: 40px;
+    font-family: helvetica;
+}
+#itemDescription{
+    padding: 15px;
+    font-size: 15px;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+}
+
+#image{
+    background-color: aquamarine;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+}
+
+.update{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 5;
+}
+
+.update input{
+    font-size: 25px;
+    border: 0;
+    background:none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid;
+    padding: 14px 10px;
+    outline: none;
+    color: black;
+}
+
+.update label{
+    vertical-align: middle;
+    font-family: helvetica;
+    font-size: 35px;
+    text-align: right;
+}
+
+#title{
+    font-size:45px;
+    font-family: helvetica;
+    text-align: center;
+}
+
+#remove{
+    font-family: helvetica;
+    font-size: 35px;
+    text-align: center;
+}
+.data{
+    font-family: helvetica;
+    font-size: 40;
+    text-align: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+.data h3{
+    font-size: 50px;
+}

@@ -1,0 +1,22 @@
+.container#inventory{
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+
+    display: grid;
+    grid-template-rows: 550px;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+
+}
+
+.container#inventory div{
+    border: 1px solid black;
+}
+
+.test{
+    color:blue;
+    text-align:center;
+}
