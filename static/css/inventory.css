@@ -261,3 +261,34 @@ body{
 .data h3{
     font-size: 50px;
 }
+
+.prodectView{
+    background-color: burlywood;
+    background-position: left;
+    background-repeat: no-repeat;
+    height: 100%;
+    color: #ffffff;
+    background-size: cover;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+  }
+
+
+.prodectView a {
+      color: whitesmoke;
+      text-decoration: none;
+      padding: 5px;
+      margin: 5px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: whitesmoke;
+      border-radius: 5px;
+      width: 70px;
+  }
+.prodectViewli {
+    padding: 5px;
+    margin: 5px;
+  }
