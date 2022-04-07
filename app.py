@@ -20,6 +20,9 @@ mongo = PyMongo(app)
 app.secret_key = secrets.token_urlsafe(16)
 
 @app.route('/')
+def homepage():
+    return render_template('Homepage.html')
+
 @app.route('/index')
 def index():
     users = mongo.db.users
