@@ -80,10 +80,8 @@ def delete_cart(itemID):
     collection.delete_one(item)
     return redirect('/cart')
 
-@app.route('/signup', methods=['GET', 'POST'])
+@app.route('/signup', methods = ['GET', 'POST'])
 def signup():
-    if request.method == "GET":
-        return render_template('Signup.html')
   if request.method == 'GET':
     return render_template('Signup.html')
   else:
@@ -105,77 +103,58 @@ def signup():
       session['username'] = request.form['user_name']
       return redirect('/Homepage')
     else:
-        users = mongo.db.users
-        existing_user = users.find_one({'name': request.form['username']})
-        if not existing_user:
-            firstname = request.form['first_name']
-            lastname = request.form['last_name']
-            emailaddress = request.form['email']
-            birth_month = request.form['month']
-            birth_year = request.form['year']
-            username = request.form['user_name']
-            passworD = request.form['password']
+      return 'Seems like you already have an account with us. Try logging in!'
 
-            salt = bcrypt.gensalt()
-            hashed = bcrypt.hashpw(passworD, salt)
-
-            users.insert_one({'firstname': firstname, 'lastname': lastname, 'email': emailaddress, 'username': username,
-                              'password': hashed, 'birthmonth': birth_month, 'birthyear': birth_year})
-            session['username'] = request.form['user_name']
-            return redirect('/Homepage')
-        else:
-            return 'Seems like you already have an account with us. Try logging in!'
-
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods = ['GET', 'POST'])
 def login():
-    if request.method == 'GET':
-        return render_template('Login.html')
+  if request.method == 'GET':
+    return render_template('Login.html')
+  else:
+    users = mongo.db.users
+    login_user = users.find_one({'name': request.form['user_name']})
+    if not login_user:
+      return 'Invalid username and password combination.'
     else:
-        users = mongo.db.users
-        login_user = users.find_one({'name': request.form['user_name']})
-        if not login_user:
-            return 'Invalid username and password combination.'
-        else:
-            db_password = login_user['password']
-            password = request.form['password'].encode("utf-8")
-            if bcrypt.checkpw(password, db_password):
-                session['user_name'] = request.form['user_name']
-                return redirect('/Homepage')
-            else:
-                return 'Invalid username and password combination.'
+      db_password = login_user['password']
+      password = request.form['password'].encode("utf-8") 
+      if bcrypt.checkpw(password, db_password):
+          session['user_name'] = request.form['user_name']
+          return redirect('/Homepage')
+      else:
+          return 'Invalid username and password combination.'
 
 @app.route('/logout')
 def logout(userID):
-    session.clear()
-    return redirect('/')
+  session.clear()
+  return redirect('/')
 
 @app.route('/inventory_view')
 def inventory_view():
-    collection = mongo.db.Head2Toe
-    products = collection.find({})
-    return render_template('inventory_all_items.html', products=products, Type_of_Product=product_types, label="All")
+  collection = mongo.db.Head2Toe
+  products = collection.find({})
+  return render_template('inventory_all_items.html', products=products, Type_of_Product=product_types, label="All")
 
 #This route is to look at the item individually 
 @app.route('/item/<itemID>')
 def item(itemID):
-    collection = mongo.db.Head2Toe
-    item = collection.find_one({"_id": ObjectId(itemID)})
-    return render_template('Inventory_item.html', item=item)
+  collection = mongo.db.Head2Toe
+  item = collection.find_one({"_id": ObjectId(itemID)})
+  return render_template('Inventory_item.html', item=item)
 
 # This route is to add an item to inventory
 @app.route('/new', methods=['GET', 'POST'])
 def new_inventory_item():
-    if request.method == 'GET':
-        return render_template('new_item.html', TypeofProduct=product_types)
+  if request.method == 'GET':
+      return render_template('new_item.html', TypeofProduct=product_types)
 
-    else:
-        name = request.form['name']
-        price = request.form['price']
-        stock = request.form['stock']
-        TypeofProduct = request.form['TypeofProduct']
-        collection = mongo.db.Head2Toe
-        collection.insert_one({"name": name, "price": price, "stock": stock, "TypeofProduct": TypeofProduct})
-        return redirect('/inventory_view')
+  else:
+      name = request.form['name'] 
+      price = request.form['price'] 
+      stock = request.form['stock'] 
+      TypeofProduct = request.form['TypeofProduct']
+      collection = mongo.db.Head2Toe
+      collection.insert_one({"name":name, "price":price, "stock":stock, "TypeofProduct":TypeofProduct})
+      return redirect('/inventory_view')
 
 # This route is to view the products in inventory
 @app.route('/inventory_view')
@@ -187,10 +166,10 @@ def inventory_view():
 @app.route('/product_type_view/<product_type>')
 def product_type_view(product_type):
     collection = mongo.db.Head2Toe
-    products = collection.find({"Type of Product": product_type})
+    products = collection.find({"Type of Product":product_type})
     product_type = product_type.capitalize()
-    return render_template('inventory_all_items.html', products=products, Type_of_Product=product_type,
-                           label=product_type)
+    return render_template('inventory_all_items.html', products=products, Type_of_Product=product_type, label=product_type)
+
 
 @app.route('/item/delete/<itemID>')
 def delete(itemID):
