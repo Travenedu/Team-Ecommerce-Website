@@ -3,7 +3,7 @@ from flask import render_template
 from flask import request, redirect, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from company_information import item_dict, product_types
+from company_information import item_dict, product_types 
 import bcrypt
 import secrets
 import os
@@ -12,6 +12,7 @@ app = Flask(__name__)
 
 # app.config['MONGO_DBNAME'] = 'database'
 
+#app.config['MONGO_URI'] = "mongodb+srv://Admin:121301Traym@cluster0.nter5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 app.config[
     'MONGO_URI'] = "mongodb+srv://Abbymercy:Abbymerci2!@cluster0.a5hk8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
@@ -19,6 +20,7 @@ mongo = PyMongo(app)
 
 app.secret_key = secrets.token_urlsafe(16)
 
+#Route Section
 @app.route('/')
 @app.route('/index')
 def index():
@@ -44,10 +46,10 @@ def product(item_id):
 def aboutUs():
     return render_template('AboutUs.html')
 
-@app.route('/session/<item_id>')
-def addto_cart(user_id):
-    user = mongo.db.user
-    product_collection = mongo.db.Head2Toe
+#@app.route('/session/<item_id>')
+#def addto_cart(user_id):
+#    user = mongo.db.user
+#    product_collection = mongo.db.Head2Toe
     
 @app.route('/cart')
 def cart():
@@ -128,14 +130,9 @@ def logout(userID):
   session.clear()
   return redirect('/')
 
-@app.route('/inventory_view')
-def inventory_view():
-  collection = mongo.db.Head2Toe
-  products = collection.find({})
-  return render_template('inventory_all_items.html', products=products, Type_of_Product=product_types, label="All")
 
 #This route is to look at the item individually 
-@app.route('/item/<itemID>')
+@app.route('/items/<itemID>')
 def item(itemID):
   collection = mongo.db.Head2Toe
   item = collection.find_one({"_id": ObjectId(itemID)})
