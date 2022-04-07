@@ -23,6 +23,10 @@ app.secret_key = secrets.token_urlsafe(16)
 def homepage():
     return render_template('Homepage.html')
 
+@app.route('/Homepage')
+def homePage():
+    return render_template('Homepage.html')
+
 @app.route('/index')
 def index():
     users = mongo.db.users
