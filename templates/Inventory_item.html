@@ -4,46 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/inventory.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/individual_item.css') }}">
     <title>Inventory Item</title>
 </head>
 <body class="prodectView">
-    <h1>Item Name</h1>
-    <div class="ItemViewContainer">
-
-        <div class="data">
-            <h3 id="price">price</h3>
-            <h2>{{ item.price }}</h2>
-
-            <h3 id="TypeofProduct">Type of Product</h3>
-            <h2>{{ item.TypeofProduct }}</h2>
-
-            <h3 id="stock">stock</h3>
-            <h2>{{ item.stock }}</h2>
-        </div>
-
-        <form method="post" action="">
-            <h2>Update Item</h2>
-            <label for="stock">Stock</label>
-            <input type="number" name="stock">
-
-            <label for="price">Price</label>
-            <input type="number" name="price">
-            <h2><a href='/new'>Remove Item</a></h2>
-        </form>
-
-        <div>
-            {% if item.image %}
-                <img src='{{ item.image }}'/>
-            {% endif %}
-            
-            {% if item.item_description %}
-                <p>{{item_description}}</p>
-            {% endif %}
-        
-        </div>
-
+    <div class="cancel">
+        <a href='/inventory_view'>Cancel</a>
     </div>
-    
+    <div class="ItemViewContainer">
+        
+        <div class="column-1">
+            <div>
+                {% if item.image %}
+                    <img src='{{ item.image }}'/>
+                {% endif %}
+                
+                {% if item.item_description %}
+                    <p>{{item_description}}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="column-2">
+                <h1 class="title">{{ item.name }}</h1>
+                <div>
+                    <h3 id="price">Price: {{ item.price }}</h3>
+                </div>
+
+                <div>
+                    <h3 id="TypeofProduct">Type of Product: {{ item.TypeofProduct }}</h3>
+                </div>
+
+                <div>
+                    <h3 id="stock">Stock: {{ item.stock }}</h3>
+                </div>
+
+                <form method="post" action="">
+                    <div class="update">
+                        <h2>Update Item</h2>
+                    </div>
+                    <div class="text_input">
+                        <label for="stock">Stock</label>
+                        <input type="number" name="stock">
+                    </div>
+
+                    <div class="text_input">
+                        <label for="price">Price</label>
+                        <input type="number" name="price">
+                    </div>
+
+                    <div class="input">
+                        <input type="submit" value="Update Item">
+                    </div>
+                    <div class="remove">
+                        <h2><a href='/new'>Remove Item</a></h2>
+                    </div>
+
+
+                </form>
+        </div>
+        
+    </div>
 </body>
 </html>

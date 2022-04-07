@@ -1,0 +1,48 @@
+body{
+    background-image: linear-gradient(rgba(4,9,30,.3),rgba(4,9,30,.3)),url("images/view_all_background.jpg");
+    background-position: center;
+    color: #ffffff;
+    background-size: cover;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  a {
+      color: whitesmoke;
+      text-decoration: none;
+      padding: 5px;
+      margin: 5px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: whitesmoke;
+      border-radius: 5px;
+  }
+
+.all_products{
+    font-size:25pt;
+    text-align: center;
+    margin: 25px;
+}
+
+.add{
+    font-size: 25pt;
+}
+
+.nav-bar{
+    font-size:20pt;
+}
+.product-list ol{
+    font-size: 30pt;
+    padding: 5px;
+    margin: 5px;
+    text-align:center;
+}
+
+h2{
+    font-size: 35pt;
+    margin:0px;
+    padding:10px;
+}

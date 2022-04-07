@@ -4,32 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/inventory.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/new_item.css') }}">
     <title>Add New Item</title>
 </head>
-<body class="newItem">
+<body>
     <div class="question">
-    <h1 id="NewItemTitle">Add a New Item to Inventory</h1>
-    <form method="post" action="/new">
-        <label for="name" id="labelName">Name of Item</label>
-        <input type="text" id="inputs" name="name" value="">
-        
-        <label for="price" id="labelName">price of Item</label>
-        <input type="number" id="inputs" name="price" value="">
+        <h1 id="NewItemTitle">Add a New Item to Inventory</h1>
+        <form method="post" action="/new">
+            <div class="text_input">
+                <label for="name" id="labelName">Name of Item</label>
+                <input type="text" id="inputs" name="name" value="">
+            </div>
 
-        <label for="stock" id="labelName">Initial Stock</label>
-        <input type="number" id="inputs" name="stock" value="">
+            <div class="text_input">
+                <label for="price" id="labelName">Price of Item</label>
+                <input type="number" id="inputs" name="price" value="">
+            </div>
 
-        <label for="TypeofProduct" id="labelName">Type of Product</label>
-            <select id="TypeofProduct" name="TypeofProduct">
-                {% for Product in TypeofProduct%}
-                    <option value='{{Product}}'>{{Product}}</option>
-                {% endfor %}
-            </select>
+            <div class="text_input">
+                <label for="stock" id="labelName">Initial Stock</label>
+                <input type="number" id="inputs" name="stock" value="">
+            </div>
 
-            <input type="submit" value="Add Item">
+            <div class="text_input_type">
+                <label for="TypeofProduct" id="labelName">Type of Product</label>
+                    <select id="TypeofProduct" name="TypeofProduct">
+                        {% for Product in TypeofProduct%}
+                            <option value='{{Product}}'>{{Product}}</option>
+                        {% endfor %}
+                    </select>
+            </div>
+
+            <div class="input">
+                <input type="submit" value="Add Item">
+            </div>
+        </form>
+        <div class="cancel">
+            <a href='/inventory_view'>Cancel</a>
         </div>
-    </form>
-    <p id="cancel"><a href='/inventory_view'>Cancel</a></p>
+    </div>
+    
+   
 </body>
 </html>
