@@ -53,10 +53,6 @@ def product(item_id):
 def aboutUs():
     return render_template('AboutUs.html')
 
-#@app.route('/session/<item_id>')
-#def addto_cart(user_id):
-#    user = mongo.db.user
-#    product_collection = mongo.db.Head2Toe
     
 @app.route('/cart')
 def cart():
