@@ -10,11 +10,11 @@ import os
 
 app = Flask(__name__)
 
-# app.config['MONGO_DBNAME'] = 'database'
+#app.config['MONGO_DBNAME'] = 'database'
 
-#app.config['MONGO_URI'] = "mongodb+srv://Admin:121301Traym@cluster0.nter5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-app.config[
-    'MONGO_URI'] = "mongodb+srv://Abbymercy:Abbymerci2!@cluster0.a5hk8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+app.config['MONGO_URI'] = "mongodb+srv://Admin:121301Traym@cluster0.nter5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+#app.config[
+#    'MONGO_URI'] = "mongodb+srv://Abbymercy:Abbymerci2!@cluster0.a5hk8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 mongo = PyMongo(app)
 
@@ -22,14 +22,11 @@ app.secret_key = secrets.token_urlsafe(16)
 
 #Route Section
 @app.route('/')
+@app.route('/homepage')
 def homepage():
     return render_template('Homepage.html')
 
-@app.route('/Homepage')
-def homePage():
-    return render_template('Homepage.html')
-
-@app.route('/index')
+@app.route('/index')#change to products
 def index():
     users = mongo.db.users
     user = users.find_one({"email": "Abby@a.com"})
@@ -49,11 +46,10 @@ def product(item_id):
     product = product_collection.find_one({"_id": ObjectId(item_id)})
     return render_template('product.html', product=product)
 
-@app.route('/AbotUs')
+@app.route('/AboutUs')
 def aboutUs():
     return render_template('AboutUs.html')
 
-    
 @app.route('/cart')
 def cart():
     product_collection = mongo.db.customers
@@ -133,7 +129,6 @@ def logout(userID):
   session.clear()
   return redirect('/')
 
-
 #This route is to look at the item individually 
 @app.route('/items/<itemID>')
 def item(itemID):
@@ -170,12 +165,9 @@ def product_type_view(product_type):
     product_type = product_type.capitalize()
     return render_template('inventory_all_items.html', products=products, Type_of_Product=product_type, label=product_type)
 
-
 @app.route('/item/delete/<itemID>')
 def delete(itemID):
     collection = mongo.db.Head2Toe
     item = collection.find_one({"name":itemID})
     collection.delete_one(item)
     return redirect('/inventory_view')
-
-

@@ -4,51 +4,72 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Homepage</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/homepagestyle.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   </head>
-
   <body>
-
-    <div class = "top-nav-bar"> 
-      <a class="active" href="Homepage.html">Home</a>
-      <a href="Products.html">Products</a>
-      <a href="Aboutus.html">About Us</a>
-      <div class = "profile">
-        <a href="Account.html">Sign In/Register <img src="white-icon.jpeg" alt=""></a> 
-        <a href="Cart"><img src="cart.png" alt = ""></a>
-      </div>
-    </div>
-
-    <div class = "container">
-      <div class = "title"> 
-        <h2>HEAD TO TOE</h2>
-        <h3>Luxury body care products to make your skin glow!</h3>
-      </div>
-
+    <div class="container">
       <div>
-        <p>Head to Toe is a luxary skin care brand made for college students, by college students. We understand the financial struggles being a college student. Therefore, we made this brand so body can feel luxurious, without hurting your pocket.</p>
+        <header class="top-nav-bar"> 
+          <a href="{{ url_for('homepage') }}">Home</a>
+          <a href="{{ url_for('index') }}">Products</a>
+          <a href="{{ url_for('aboutUs') }}">About Us</a>
+          <a href="{{ url_for('index') }}">Sign In/Register</a> 
+        </header>
       </div>
+      <div>
 
-      <div class = "shop-now">
-       <a class = "button" href="Products.html">SHOP NOW</a>
+        <div class="title"> 
+          <h2>HEAD TO TOE</h2>
+          <h3>Luxury body care products to make your skin glow!</h3>
+        </div>
+
+        <div>
+          <p>
+            Head to Toe is a luxary skin care brand made for college students, by college students. We understand the financial struggles being a college student. Therefore, we made this brand so body can feel luxurious, without hurting your pocket.
+          </p>
+        </div>
+
+        <div class="shop-now">
+        <a class="button" href="{{ url_for('index') }}">SHOP NOW</a>
+        </div>
       </div>
-
-
-      <footer>
-        <div class = "contact-us">
-          <h4>Contact Us</h4>
-          <address>1111 SDS Street NW</address>
-          <address>Cool Cats, USA</address>
-          <address>222-555-3333</address>
-        </div>
-        <div class = "socials">
-          <address>Intagram: @headto.toe</address>
-          <address>Facebook: Head to Toe</address>
-          <address>Twitter: @headto.toe</address>
-        </div>
-      </footer>
-
-    </div>
+      <div>
+        <footer class="footer">
+          <div class="footer-container">
+              <div class="row">
+                  <div class="footer-col">
+                      <h4>Company</h4>
+                      <ul>
+                          <li><a href="#">About Us</a></li>
+                          <li><a href="#">Our Services</a></li>
+                          <li><a href="#">Privacy Policy</a></li>
+                          <li><a href="#">Fill in</a></li>
+                      </ul>
+                  </div>
+                  <div class="footer-col">
+                      <h4>Get help</h4>
+                      <ul>
+                          <li><a href="#">FAQ</a></li>
+                          <li><a href="#">Random</a></li>
+                          <li><a href="#">Random</a></li>
+                          <li><a href="#">Random</a></li>
+                          <li><a href="#">Random</a></li>
+                      </ul>
+                  </div>
+                  <div class="footer-col">
+                      <h4>Follow us</h4>
+                      <div class="social-links">
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </footer>  
+    </div> 
+  </div>
   </body>
-
 </html>
